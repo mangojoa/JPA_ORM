@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/jpabook-master/ch02-jpa-start1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpabook-master/ch02-jpa-start1/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpabook-master/ch04-jpa-start2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpabook-master/ch04-jpa-start2/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpabook-master/ch04-model1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpabook-master/ch04-model1/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpabook-master/ch05-model2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpabook-master/ch05-model2/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpabook-master/ch06-model3/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpabook-master/ch06-model3/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpabook-master/ch07-model4/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpabook-master/ch07-model4/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpabook-master/ch08-model5/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpabook-master/ch08-model5/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpabook-master/ch09-model6/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpabook-master/ch09-model6/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpabook-master/ch11-jpa-shop/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpabook-master/ch11-jpa-shop/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpabook-master/ch12-springdata-shop/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpabook-master/ch12-springdata-shop/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
