@@ -61,8 +61,16 @@ public class jpaMain {
         */
         transaction.commit(); // 트랜젝션 커밋
 
-    }
 
+        em.remove(member); // 엔티티 삭제
+        /*
+        먼저 삭제 대상 엔티티를 조회해야 한다.
+
+        물론 엔티티를 즉시 삭제하는 것이 아니라 엔티티 등록과 비슷하게 삭제 쿼리를 쓰기 지연 SQL 저장소에 등록한다.
+        이후 트랜잭션을 커밋해서 플러시를 호출하면 실제 데이터베이스에 삭제 쿼리를 전달한다.
+        .. 이렇게 삭제된 엔티티는 재사용하지 말고 자연스럽게 가비지 컬렉션의 대상이 되도록 두는 것이 좋다.
+        */
+    }
     public static void logic(EntityManager em) {
 
         String id = "id2";
