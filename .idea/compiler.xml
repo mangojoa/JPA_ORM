@@ -13,6 +13,7 @@
         <module name="ch04-jpa-start2" />
         <module name="JPA_ORM_01" />
         <module name="ch02-jpa-start1" />
+        <module name="JPA_ORM_02" />
         <module name="ch07-model4" />
         <module name="ch08-model5" />
         <module name="ch09-model6" />
@@ -30,7 +31,7 @@
       <module name="ch09-model6" target="1.6" />
       <module name="ch11-jpa-shop" target="1.6" />
       <module name="ch12-springdata-shop" target="1.6" />
-      <module name="JPA_ORM_01" target="1.6" />
+      <module name="JPA_ORM_01" target="15" />
       <module name="JPA_ORM_02" target="1.6" />
     </bytecodeTargetLevel>
   </component>
