@@ -4,10 +4,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.List;
 
 public class jpaMain {
-    public static void main(String[] args) {
+    public void example() {
         /*
         엔티티 수정 = SQL 수정 쿼리의 문제점
 
@@ -33,10 +32,10 @@ public class jpaMain {
         Member member = em.find(Member.class, "member");
 
         // 영속 엔티티 데이터 수정
-        Member.setUsername("h1");
-        Member.setAge(19);
+        //Member.setUsername("h1");
+        //Member.setAge(19);
 
-        em.Updata(member); // 대충 이런 코드를 통해 변경을 감지 할 수 있지 않을까 ?!
+        //em.Updata(member); // 대충 이런 코드를 통해 변경을 감지 할 수 있지 않을까 ?!
         /* 유감이지만 없다 ...
        엔티티의 변경사항을 데이터베이스에 자동으로 반영하는 기능을 '변경 감지'라 한다.
        JPA는 엔티티를 영속성 컨텍스트에 보관할 때, 최초 상태를 복사해서 저장해둔다. = > 이를 스냅샷이라 한다.
@@ -122,27 +121,6 @@ public class jpaMain {
         3. em.close();
         영속성 컨텍스트를 종료하면 해당 영속성 컨텍스트가 관리하던 영속 상태의 엔티티가 모두 준영속 상태가 된다.
         */
-
-    }
-    public static void logic(EntityManager em) {
-
-        String id = "id2";
-        Member member = new Member();
-        member.setId(id);
-        member.setUsername("mango");
-        member.setAge(20);
-
-        em.persist(member);
-
-        member.setAge(21);
-
-        Member findMember = em.find(Member.class, id);
-        System.out.println("findMember = " + findMember.getUsername() + ", age = " + findMember.getAge());
-
-        List<Member> members = em.createQuery("select m from Member m", Member.class).getResultList();
-        System.out.println("members.size = " + members.size());
-
-        em.remove(member);
 
     }
 }
