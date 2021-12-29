@@ -1,4 +1,5 @@
 package jpaorm;
 
-public class RoleType {
+public enum RoleType {
+    ADMIN, USER;
 }
