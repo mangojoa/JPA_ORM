@@ -5,15 +5,13 @@ import javax.persistence.*;
 @Entity
 public class Member {
 
-    // [22.01.03] 객체 관계 매핑
+    // [22.01.03] 양뱡향 연관관계 매핑
     @Id @Column(name = "MEMBER_ID")
     private String id;
 
     private String username;
-
-    // [22.01.03] 연관관계 매핑
-
-    /*
+    
+    /* [22.01.03] 연관관계 매핑
     @ManyToOne 이름 그대로 다대일(N:1) 관계라는 매핑 정보다.
     회원과 팀은 다대일 관계다. 연관관계를 매핑할 때 이렇게 다중성을 나타내는 어노테이션을 필수로 사용해야한다.
 
