@@ -95,10 +95,20 @@ public class Main {
 
         /* em.remove(team); 팀 삭제
         연관된 엔티티를 삭제하려면 기존에 있던 연관관계를 먼저 제거하고 삭제해야 한다.
-        그렇지 않으면 외래 키 제약 조건으로 인해, 데이터베이스에
-
-        서 오류가 발생한다.
+        그렇지 않으면 외래 키 제약 조건으로 인해, 데이터베이스에서 오류가 발생한다.
         */
     }
 
+    // [22.01.03] 일대다 컬랙션 조회
+    public void biDirection() {
+        Team team = em.find(Team.class, "team1");
+        List<Member> members = team.getMembers();
+
+        for (Member member : members) {
+            System.out.println("member.username = " + member.getUsername());
+
+            // 결과 : member.username = ghldnjs1
+            // 결과 : member.username = ghldnjs2
+        }
+    }
 }
