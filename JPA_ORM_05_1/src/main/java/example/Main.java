@@ -16,6 +16,13 @@ public class Main {
         try {
             tx.begin();
             testSave();
+
+            // [22.01.03] 조회
+            Member member = em.find(Member.class, "member1");
+            Team team = member.getTeam();
+            System.out.println("team name = " + team.getName());
+
+            // 출력결과 : team name = xla1
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
