@@ -13,7 +13,6 @@
         <module name="JPA_ORM_03" />
         <module name="ch08-model5" />
         <module name="ch09-model6" />
-        <module name="JPA_ORM_05" />
         <module name="ch11-jpa-shop" />
         <module name="ch04-model1" />
         <module name="ch05-model2" />
@@ -21,6 +20,7 @@
         <module name="ch04-jpa-start2" />
         <module name="ch02-jpa-start1" />
         <module name="JPA_ORM_04_ex" />
+        <module name="JPA_ORM_05_1" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -38,7 +38,7 @@
       <module name="JPA_ORM_02" target="1.6" />
       <module name="JPA_ORM_03" target="1.6" />
       <module name="JPA_ORM_04_ex" target="1.6" />
-      <module name="JPA_ORM_05" target="15" />
+      <module name="JPA_ORM_05_1" target="15" />
     </bytecodeTargetLevel>
   </component>
 </project>

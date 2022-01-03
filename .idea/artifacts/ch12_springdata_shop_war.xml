@@ -3,8 +3,10 @@
     <output-path>$PROJECT_DIR$/jpabook-master/ch12-springdata-shop/target</output-path>
     <properties id="maven-jee-properties">
       <options>
+        <exploded>false</exploded>
         <module>ch12-springdata-shop</module>
         <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
       </options>
     </properties>
     <root id="archive" name="ch12-springdata-shop-1.0-SNAPSHOT.war">
