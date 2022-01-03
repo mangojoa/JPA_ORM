@@ -37,7 +37,7 @@ public class Main {
 
     }
 
-    // [22.01.03] 저장 / 양방향 연관관계 저장의 주의점
+    // [22.01.03] 저장
     public static void testSave(EntityManager em) {
 
         Team team1 = new Team();
@@ -110,5 +110,36 @@ public class Main {
             // 결과 : member.username = ghldnjs1
             // 결과 : member.username = ghldnjs2
         }
+    }
+
+    /* [22.01.03] 양방향 연관관계 저장의 주의점
+    양방향 연관관계를 설정하고 가장 흔히 하는 실수는 연관관계의 주인에는 값을 입력하지 않고, 주인이 아닌 곳에만 값을 입력하는 것이다.
+    데이터베이스에 외래 키 값이 정상적으로 저장되지 않으면 이것부터 의심해보자.
+    */
+    public void testSaveNoOwner() {
+
+        Member member1 = new Member();
+        member1.setId("member1");
+        member1.setUsername("ghldnjs1");
+        em.persist(member1);
+
+        Member member2 = new Member();
+        member2.setId("member2");
+        member2.setUsername("ghldnjs2");
+        em.persist(member2);
+
+        Team team1 = new Team();
+        // 주인이 아닌 곳만 연관관계 설정
+        team1.getMembers().add(member1); // 쉽게 말해서 연관관계 주인인 Member에 값을 넣지 않고 Team에 넣어서 문제가 발생하는 것이다.
+        team1.getMembers().add(member2);
+
+        em.persist(team1);
+        /* [22.01.03] 양방향 연관관계 저장의 주의점
+        외래 키 TEAM_ID에 team1이 아닌 null 값이 입력되어 있는데, 연관관계의 주인이 아닌 Team.member에만 값을 저장했기 때문이다.
+        연관관계의 주인만이 외래 키의 값을 변경할 수 있다.
+        코드에서는 연관관계의 주인인 Member.team에 아무 값도 입력하지 않았다.
+        따라서 TEAM_ID 외래 키의 값도 null이 저장된다.
+        */
+
     }
 }
