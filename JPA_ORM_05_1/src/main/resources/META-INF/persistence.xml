@@ -2,7 +2,6 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
 
     <persistence-unit name="jpabook">
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <properties>
             <!-- H2 데이터베이스 드라이버 및 설정 -->
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>

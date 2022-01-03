@@ -16,7 +16,8 @@ public class Main {
     public static void main(String[] args) {
         try {
             tx.begin();
-            testSave();
+            testSave(em);
+            queryLogicJoin(em);
 
             // [22.01.03] 조회 (객체 그래프 탐색)
             Member member = em.find(Member.class, "member1");
@@ -36,10 +37,9 @@ public class Main {
 
     }
 
-    // [22.01.03] 저장
-    public static void testSave() {
+    // [22.01.03] 저장 / 양방향 연관관계 저장의 주의점
+    public static void testSave(EntityManager em) {
 
-        // JPA에서 엔티티를 저장할 때 연관된 모든 엔티티는 영속상태여야 한다.
         Team team1 = new Team();
         team1.setId("team1");
         team1.setName("xla1");
@@ -48,8 +48,8 @@ public class Main {
         Member member1 = new Member();
         member1.setId("member1");
         member1.setUsername("ghldnjs1");
-        member1.setTeam(team1); // 회원 => 팀 참조
-        em.persist(member1); // 저장
+        member1.setTeam(team1);
+        em.persist(member1);
 
         Member member2 = new Member();
         member2.setId("member2");
@@ -57,7 +57,7 @@ public class Main {
         member2.setTeam(team1);
         em.persist(member2);
 
-        Team findTeam = member1.getTeam();
+        // Team findTeam = member1.getTeam();
     }
 
     // [22.01.03] JPOL 조인 검색
