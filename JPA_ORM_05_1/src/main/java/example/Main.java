@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class Main {
 
@@ -17,7 +18,7 @@ public class Main {
             tx.begin();
             testSave();
 
-            // [22.01.03] 조회
+            // [22.01.03] 조회 (객체 그래프 탐색)
             Member member = em.find(Member.class, "member1");
             Team team = member.getTeam();
             System.out.println("team name = " + team.getName());
@@ -57,6 +58,21 @@ public class Main {
         em.persist(member2);
 
         Team findTeam = member1.getTeam();
+    }
+
+    // [22.01.03] JPOL 조인 검색
+    public static void queryLogicJoin(EntityManager em) {
+        String jpql = "select m from Member m join m.team t where " + "t.name=:teamName";
+
+        List<Member> resultList = em.createQuery(jpql, Member.class)
+                .setParameter("teamName", "xla1").getResultList();
+
+        for (Member member : resultList) {
+            System.out.println("[query] member.username = " + member.getUsername());
+        }
+
+        // 결과 : [query] member.username = ghldnjs1
+        // 결과 : [query] member.username = ghldnjs2
     }
 
 
