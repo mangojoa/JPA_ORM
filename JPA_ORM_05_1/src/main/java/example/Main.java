@@ -75,5 +75,16 @@ public class Main {
         // 결과 : [query] member.username = ghldnjs2
     }
 
+    // [22.01.03] 연관관계 수정
+    public static void updateRelation(EntityManager em) {
+
+        Team team2 = new Team();
+        team2.setId("team2");
+        team2.setName("xla2");
+        em.persist(team2);
+
+        Member member = em.find(Member.class, "member1");
+        member.setTeam(team2);
+    }
 
 }
