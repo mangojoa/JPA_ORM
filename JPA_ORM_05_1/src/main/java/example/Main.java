@@ -2,7 +2,7 @@ package example;
 
 public class Main {
 
-    // [22.01.03] 순수한 객체 연관관계의 단방향
+
     public static void main(String[] args) {
 
         Member member1 = new Member();
