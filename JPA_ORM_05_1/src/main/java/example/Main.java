@@ -142,4 +142,43 @@ public class Main {
         */
 
     }
+
+    /* [22.01.03] 순수한 객체까지 고려한 양방향 연관관계
+    연관관계의 주인에만 값을 저장하고 주인이 아닌 곳에는 값을 저장하지 않아도 되는가?
+    사실은 객체 관점에거 양쪽 방향에 모두 값을 입력해주는 것이 가장 안전하다. 양쪽 방향 모두 값을 입력하지 않으면 JPA를 사용하지 않는
+    순수한 객체 상태에서 심각한 문제가 발생할 수 있다.
+    */
+
+    public void testObject_cross() {
+        Team team1 = new Team();
+        team1.setId("team1");
+        team1.setName("xla1");
+        em.persist(team1);
+
+        Member member1 = new Member();
+        member1.setId("member1");
+        member1.setUsername("ghldnjs1");
+
+        Member member2 = new Member();
+        member2.setId("member2");
+        member2.setUsername("ghldnjs2");
+
+        // [22.01.04] 양방향은 양쪽 다 관계를 설정해야 한다. 회원 -> 팀 / 팀 -> 회원 식으로
+        member1.setTeam(team1);
+        team1.getMembers().add(member1);
+        em.persist(member1);
+        member2.setTeam(team1);
+        team1.getMembers().add(member2);
+        em.persist(member2);
+
+        /*
+        순수한 객체 상태에서도 동작하며 테이블의 왜래 키도 정상 입력된다.
+        */
+
+        List<Member> members = team1.getMembers();
+        System.out.println("members.size = " + members.size());
+
+        // 결과 : members.size = 2
+    }
+
 }
