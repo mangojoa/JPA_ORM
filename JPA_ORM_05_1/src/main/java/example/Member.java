@@ -10,7 +10,7 @@ public class Member {
     private String id;
 
     private String username;
-    
+
     /* [22.01.03] 연관관계 매핑
     @ManyToOne 이름 그대로 다대일(N:1) 관계라는 매핑 정보다.
     회원과 팀은 다대일 관계다. 연관관계를 매핑할 때 이렇게 다중성을 나타내는 어노테이션을 필수로 사용해야한다.
@@ -30,8 +30,27 @@ public class Member {
         return team;
     }
 
+    /* [22.01.04] 연관관계 편의 메소드
+    양방향 연관관계는 결둗 양쪽 다 신경써야 한다.
+    member1.setTeam(team1);
+    team1.getMembers().add(member1);
+    하지만 이처럼 각각 호출하다 보면 실수로 둘 중 하나만 호출해서 양방향이 깨질 수 있다.
+    양방향 관계에서 두 코드는 하나인 것처럼 사용하는 것이 안전하다.
+    */
     public void setTeam(Team team) {
+
+        /* [22.01.04] 연관관계 메소드 주의사항
+        연관관계를 변경할 때는 기존 팀이 있으면 기존 팀과 회원의 연관관계를 삭제하는 코드를 추가해야 한다.
+        */
+
+        // 기존 팀과 관계를 제거
+        if (this.team != null) {
+            this.team.getMembers().remove(this);
+        }
+
         this.team = team;
+        // setTeam() 메소드 하나로 양방향 관계를 모두 설정하도록 변경
+        team.getMembers().add(this);
     }
 
     public String getId() {

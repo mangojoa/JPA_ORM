@@ -165,11 +165,14 @@ public class Main {
 
         // [22.01.04] 양방향은 양쪽 다 관계를 설정해야 한다. 회원 -> 팀 / 팀 -> 회원 식으로
         member1.setTeam(team1);
-        team1.getMembers().add(member1);
-        em.persist(member1);
         member2.setTeam(team1);
-        team1.getMembers().add(member2);
+        em.persist(member1);
         em.persist(member2);
+
+        /* [22.01.04] team1.getMembers().add(member1); 기존의 양방향 설정을 했던 코드는 이제 제거를 해도 된다.
+        team1.getMembers().add(member1);의 역할을 Member class의 setTeam() 메소드가 대신 하도록 전가 했기 때문이다.
+        */
+
 
         /*
         순수한 객체 상태에서도 동작하며 테이블의 왜래 키도 정상 입력된다.
