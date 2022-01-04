@@ -20,6 +20,7 @@
         <module name="ch04-jpa-start2" />
         <module name="ch02-jpa-start1" />
         <module name="JPA_ORM_04_ex" />
+        <module name="JPA_ORM_06_ex" />
         <module name="JPA_ORM_05_1" />
       </profile>
     </annotationProcessing>
@@ -39,6 +40,7 @@
       <module name="JPA_ORM_03" target="1.6" />
       <module name="JPA_ORM_04_ex" target="1.6" />
       <module name="JPA_ORM_05_1" target="1.6" />
+      <module name="JPA_ORM_06_ex" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>
