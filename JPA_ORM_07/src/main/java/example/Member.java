@@ -2,6 +2,10 @@ package example;
 
 import javax.persistence.*;
 
+/* [22.01.04] 다대일 양방향 [N:1 / 1:N]
+실선이 연관관계의 주인 / 점선은 연관관계 주인이 아니다.
+*/
+
 @Entity
 public class Member {
 
@@ -25,6 +29,16 @@ public class Member {
 
     private String username;
 
+    public void setTeam(Team team) {
+        this.team = team;
+
+        // 무한 루프에 빠지지 않도록 체크
+        if (!team.getMembers().contains(this)) {
+            team.getMembers().add(this);
+        }
+
+    }
+
     public Long getId() {
         return id;
     }
@@ -35,10 +49,6 @@ public class Member {
 
     public Team getTeam() {
         return team;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
     }
 
     public String getUsername() {
