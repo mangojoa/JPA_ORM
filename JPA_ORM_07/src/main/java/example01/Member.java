@@ -1,4 +1,4 @@
-package example;
+package example01;
 
 import javax.persistence.*;
 

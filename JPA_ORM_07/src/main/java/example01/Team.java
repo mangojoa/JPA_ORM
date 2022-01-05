@@ -1,8 +1,7 @@
-package example;
+package example01;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Entity
