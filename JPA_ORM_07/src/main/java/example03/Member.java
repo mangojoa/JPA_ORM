@@ -21,7 +21,7 @@ package example03;
 
 import javax.persistence.*;
 
-// [22.01.05] 일대일 양방향 연관관계 - 주 테이블에 외래 키
+// [22.01.05] 일대일 양방향 연관관계 - 대상 테이블에 외래 키
 @Entity
 public class Member {
 
@@ -32,8 +32,7 @@ public class Member {
 
     private String username;
 
-    @OneToMany
-    @JoinColumn(name = "LOCKER_ID")
+    @OneToMany(mappedBy = "member")
     private Locker locker;
 
     public Long getId() {
