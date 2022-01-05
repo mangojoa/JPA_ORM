@@ -21,7 +21,7 @@ package example03;
 
 import javax.persistence.*;
 
-// [22.01.05] 일대일 단방향 연관관계
+// [22.01.05] 일대일 양방향 연관관계 - 주 테이블에 외래 키
 @Entity
 public class Member {
 
