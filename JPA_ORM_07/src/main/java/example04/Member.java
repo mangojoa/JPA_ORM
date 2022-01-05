@@ -62,6 +62,17 @@ public class Member {
         this.products = products;
     }
 
+    // [22.01.05] 연관관계 편의 메소드 추가 (양방향 관리를 위한)
+    public void addProduct(Product product) {
+        // 무한 루프에 빠지지 않도록 체크
+        if (!product.getMembers().contains(this)) {
+            product.getMembers().add(this);
+        }
+
+        products.add(product);
+        product.getMembers().add(this);
+    }
+
     /* [22.01.05]
     실행된 SQL을 보면 연결 테이블인 MEMBER_PRODUCT와 상품 테이블을 조인해서 연관된 상품을 조회한다.
     @ManyToMany 덕분에 복잡한 대다대 관계를 어플리케이션에서는 아주 단순하게 사용할 수 있다.

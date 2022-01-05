@@ -41,13 +41,23 @@ public class Main {
 
     }
 
-    public static void find(EntityManager em) {
+    public static void find(EntityManager em) { // 탐색
         Member member = em.find(Member.class, "member1");
         List<Product> products = member.getProducts(); // 객체 그래프 탐색
         for (Product product : products) {
             System.out.println("product.name = " + product.getName());
         }
         // 결과 : product.name = productA
+    }
+
+    public void findInverse() {
+        Product product = em.find(Product.class, "productA");
+        List<Member> members = product.getMembers(); // 객체 그래프 탐색
+        for (Member member : members) {
+            System.out.println("member = " + member.getUsername());
+        }
+
+        // 결과 : member = member1
     }
 
 }
