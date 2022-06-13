@@ -7,20 +7,21 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ch12-springdata-shop" />
+        <module name="JPA_Step_02" />
         <module name="JPA_ORM_01" />
         <module name="JPA_ORM_02" />
-        <module name="ch07-model4" />
         <module name="JPA_ORM_03" />
+        <module name="ch07-model4" />
         <module name="ch08-model5" />
         <module name="ch09-model6" />
         <module name="ch11-jpa-shop" />
-        <module name="ch04-model1" />
         <module name="JPA_ORM_07" />
+        <module name="ch04-model1" />
         <module name="ch05-model2" />
         <module name="ch06-model3" />
         <module name="ch04-jpa-start2" />
-        <module name="ch02-jpa-start1" />
         <module name="JPA_ORM_04_ex" />
+        <module name="ch02-jpa-start1" />
         <module name="JPA_ORM_06_ex" />
         <module name="JPA_ORM_05_1" />
       </profile>
@@ -36,13 +37,15 @@
       <module name="ch09-model6" target="1.6" />
       <module name="ch11-jpa-shop" target="1.6" />
       <module name="ch12-springdata-shop" target="1.6" />
+      <module name="JPA_ex01" target="1.6" />
       <module name="JPA_ORM_01" target="1.6" />
       <module name="JPA_ORM_02" target="1.6" />
       <module name="JPA_ORM_03" target="1.6" />
       <module name="JPA_ORM_04_ex" target="1.6" />
       <module name="JPA_ORM_05_1" target="1.6" />
       <module name="JPA_ORM_06_ex" target="1.6" />
-      <module name="JPA_ORM_07" target="1.6" />
+      <module name="JPA_ORM_07" target="7" />
+      <module name="JPA_Step_02" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>

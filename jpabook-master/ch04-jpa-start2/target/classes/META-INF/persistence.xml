@@ -14,11 +14,13 @@
 
             <!-- 옵션 -->
             <property name="hibernate.show_sql" value="true" />
+            <!-- 속성을 true로 설정하면 콘솔에 실행되는 테이블 생성 DDL(Data Definition Language)을 출력할 수 있다. -->
             <property name="hibernate.format_sql" value="true" />
             <property name="hibernate.use_sql_comments" value="true" />
             <property name="hibernate.id.new_generator_mappings" value="true" />
             <property name="hibernate.hbm2ddl.auto" value="create" />
-            
+            <!-- 이 속성은 어플리케이션 실행 시점에서 데이터베이스 테이블을 자동으로 생성한다. -->
+
             <!-- 기본 매핑 이름 -->
             <!-- <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy" />  -->
 
