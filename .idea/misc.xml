@@ -25,8 +25,12 @@
         <option value="$PROJECT_DIR$/JPA_ORM_05_1/pom.xml" />
         <option value="$PROJECT_DIR$/JPA_ORM_06_ex/pom.xml" />
         <option value="$PROJECT_DIR$/JPA_ORM_07/pom.xml" />
+        <option value="$PROJECT_DIR$/JPA_Step_02/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" default="true" project-jdk-name="corretto-15" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="jbr-11" project-jdk-type="JavaSDK" />
+  <component name="ProjectType">
+    <option name="id" value="jpab" />
+  </component>
 </project>
