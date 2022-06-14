@@ -66,7 +66,13 @@ public class JpaMain {
         * */
         em.persist(member);
 
-        // 수정
+        /* 수정
+        * 엔티티를 수정한 후에 수정 내용을 반영하려면
+        * em.update() 와 같은 메소드를 호출해야 할것 같지만 아직 JPA를 몰라서 이런 생각이 들 수 있다.
+        * JPA는 어떤 엔티티가 변경되었는지 추적하는 기능을 갖추고 있다.
+        * 그렇기에 member.setAge(20) 처럼 엔티티의 값만 변경하면 다음과 같은 UPDATE SQL을 생성해서 데이터 베이스에 값을 변경한다.
+        * update member set age=20, name='망고대농장' where ID='mangojoa';
+        * */
         member.setAge(20);
 
         // 한 건 조회
