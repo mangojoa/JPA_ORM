@@ -23,10 +23,14 @@ public class JpaMain {
         * */
         EntityManager em = emf.createEntityManager();
 
-        // [트랜잭션] - 획득
+        /* [22.06.14] [트랜잭션] - 획득
+        * JPA를 사용하면 항상 트랜젝션 안에서 데이터를 변경해야 한다. 트랜잭션 없이 데이터를 변경하면 예외가 발생한다.
+        * 트랜젝션을 시작하려면 엔티티 매니저에서 트랜잭션 API를 받아야한다.
+        *  */
         EntityTransaction tx = em.getTransaction();
 
         try {
+            // 트랜잭션 API를 사용해서 비즈니스 로직이 정상 동작하면 트랜잭션을 커밋하고 예외가 발생하면 롤백한다.
             tx.begin();
             logic(em);
             tx.commit();
