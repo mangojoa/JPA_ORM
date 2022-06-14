@@ -47,9 +47,39 @@ public class JpaMain {
         emf.close();
     }
 
-    // 비즈니스 로직
+    /* [22.06.14] 비즈니스 로직
+    * 회원 엔티티를 하나 생성한 다음 엔티티 매니저를 통해 데이터베이스에 등록, 수정, 삭제, 조회한다.
+    * */
     private static void logic(EntityManager em) {
-        // write logic
+        /* [22.06.14] 등록하기 전...
+        * 엔티티를 저장하려면 엔티티 매니저의 persist() 메소드에 저장할 엔티티티 넘겨주면 된다.
+        * */
+        String id = "mangojoa";
+        Member member = new Member();
+        member.setId(id);
+        member.setUsername("mango Platation");
+        member.setAge(28);
+
+        /* 등록
+        * JPA는 회원 엔티티의 매핑 정보(어노테이션)를 분석해서 다음과 같은 SQL을 실행한다.
+        * insert into member (id, name, age) values ('mangojoa', 'mango Platation', 28);
+        * */
+        em.persist(member);
+
+        // 수정
+        member.setAge(20);
+
+        // 한 건 조회
+        Member findMember = em.find(Member.class, id);
+        System.out.println("findMember = " + findMember.getUsername() + ", age = " + findMember.getAge());
+
+        // 목록 조회
+        List<Member> members =
+                em.createQuery("select m from Member m", Member.class).getResultList();
+        System.out.println("member.size = " + members.size());
+
+        // 삭제
+//        em.remove(member);
     }
 
 }
