@@ -84,7 +84,10 @@ public class JpaMain {
                 em.createQuery("select m from Member m", Member.class).getResultList();
         System.out.println("member.size = " + members.size());
 
-        // 삭제
+        /* 삭제
+        * 엔티티를 삭제하려면 엔티티 매니저의 remove() 메소드에 삭제하려는 엔티티를 넘겨준다.
+        * delete from member where ID='mongojoa';
+        * */
 //        em.remove(member);
     }
 
