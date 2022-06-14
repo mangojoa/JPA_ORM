@@ -75,7 +75,10 @@ public class JpaMain {
         * */
         member.setAge(20);
 
-        // 한 건 조회
+        /* 한 건 조회
+        * find() 메소드는 조회할 엔티티 타입과 @Id로 데이터베이스 테이블의 기본 키와 매핑한 식별자 값으로 엔티티 하나를 조회하는 가장 단순한 조회 메소드이다.
+        * select * from member where ID="mangojoa";
+        * */
         Member findMember = em.find(Member.class, id);
         System.out.println("findMember = " + findMember.getUsername() + ", age = " + findMember.getAge());
 
