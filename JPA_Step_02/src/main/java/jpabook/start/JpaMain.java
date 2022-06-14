@@ -82,7 +82,34 @@ public class JpaMain {
         Member findMember = em.find(Member.class, id);
         System.out.println("findMember = " + findMember.getUsername() + ", age = " + findMember.getAge());
 
-        // 목록 조회
+        /* 목록 조회(JPQL)
+        * JPA를 사용하면 애플리케이션 개발자는 엔티티 객체를 중심으로 개발하고 데이터베이스에 대한 처리는 JPA에 맡겨야 한다.
+        * 바로 앞에서 사용한 모든 과정들은 SQL을 전혀 사용하지 않는다.
+        *
+        * 문제는 검색 쿼리에 있다.
+        * JPA는 엔티티 객체를 중심으로 개발하므로 검색을 할 때도 테이블이 아닌 엔티티 객체를 대상으로 검색해야 한다.
+        *
+        * 그런데 테이블이 아닌 엔티티 객체를 대상으로 검색하려면 데이터베이스의 모든 데이터를 애플리케이션으로 불러와서
+        * 엔티티 객체로 변경한 다음 검색해야 하는데. 이는 사실상 불가능하다.
+        *
+        * 애들리케이션이 필요한 데이터만 데이터베이스에서 불러오려면 결국 검색 조건이 포함된 SQL을 사용해야 한다.
+        * JPA는 JPQL이라는 쿼리 언어로 이런 문제를 해결한다.
+        *
+        * JPA는 SQL을 추상화한 JPQL이라는 객체지향 쿼리 언어를 제공한다.
+        * JPQL은 SQL과 문법이 거의 유사하다. (SELECT, FROM, WHERE, GROUP, BY, HAVING, JOIN)
+        *
+        * 하지만 유사할 뿐 차이점은 존재한다.
+        * JPQL은 엔티티 객체를 대상으로 쿼리한다. 쉽게 이야기해서 클래스와 필드를 대상으로 쿼리한다.
+        * SQL은 데이터베이스 테이블을 대상으로 쿼리한다.
+        *
+        * em.createQuery("select m from Member m", Member.class).getResultList();
+        * 여기에서 "select m from Member m"이 바로 JPQL이다.
+        * 여기서 from Member는 회원 엔티티 객체를 말하는 것이지 MEMBER 테이블이 아니다.
+        * JPQL은 데이터베이스 테이블을 전혀 알지 못한다.
+        *
+        * JPQL을 사용하려면 먼저 em.createQuery(JPQL, 반환타입) 메소드를 실행해서
+        * 쿼리 객체를 생성한 후 쿼리 객체의 getResultList() 메소드를 호출하면 된다.
+        * */
         List<Member> members =
                 em.createQuery("select m from Member m", Member.class).getResultList();
         System.out.println("member.size = " + members.size());
