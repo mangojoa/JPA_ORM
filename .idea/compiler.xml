@@ -10,6 +10,7 @@
         <module name="JPA_Step_02" />
         <module name="JPA_ORM_01" />
         <module name="JPA_ORM_02" />
+        <module name="JPA_Step_03" />
         <module name="JPA_ORM_03" />
         <module name="ch07-model4" />
         <module name="ch08-model5" />
@@ -46,6 +47,7 @@
       <module name="JPA_ORM_06_ex" target="1.6" />
       <module name="JPA_ORM_07" target="7" />
       <module name="JPA_Step_02" target="1.6" />
+      <module name="JPA_Step_03" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>
