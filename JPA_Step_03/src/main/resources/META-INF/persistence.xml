@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--설정 파일은 persistence로 시작하며 이곳에는 xml 네임스페이스와 사용할 버전을 지정한다.-->
+<!--xmlns / version 을 명시하면 된다.-->
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+
+    <!--JPA 설정은 영속성 유닛이라는 것부터 시작하는데 일반적으로 연결한 데이터베이스당 하나의 영속성 유닛을 등록한다.-->
+    <!--영속성 유닛에는 고유한 이름을 부여해야 하는데 이는 알아서 설정해도 된다.-->
+    <persistence-unit name="jpabook">
+        <properties>
+            <!-- 필수 속성 -->
+            <!--JDBC driver-->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <!--데이터베이스 접속 아이디-->
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <!--데이터베이스 접속 비밀번호-->
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <!--데이터베이스 접속 URL-->
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/test"/>
+            <!--떼이터베이스 방언(dialect) 설정-->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+
+            <!-- 옵션 -->
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.use_sql_comments" value="true" />
+            <property name="hibernate.id.new_generator_mappings" value="true" />
+
+            <!--<property name="hibernate.hbm2ddl.auto" value="create" />-->
+        </properties>
+    </persistence-unit>
+
+</persistence>

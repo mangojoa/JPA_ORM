@@ -17,7 +17,7 @@ public class JpaMain {
         * 이는 persistence.xml의 jpabook에서 호출한다.
         * */
         EntityManagerFactory emf =
-                Persistence.createEntityManagerFactory("jpabool");
+                Persistence.createEntityManagerFactory("jpabook");
 
         /* [22.06.20] 엔티티 매니저
         * EntityManager는 생성하는 비용은 거의 들지 않는다.
@@ -26,7 +26,6 @@ public class JpaMain {
         * 동시성 문제가 발생하므로 스레드 간에 절대 공유하면 안 된다.
         * */
         EntityManager em = emf.createEntityManager();
-
 
         EntityTransaction tx = em.getTransaction();
 
