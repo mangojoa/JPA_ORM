@@ -20,12 +20,14 @@
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
 
             <!-- 옵션 -->
+            <!-- 참고로 hivernate.show_sql 의 값을 true로 설정하면 DDL을 확인할 수 있다. -->
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
             <property name="hibernate.use_sql_comments" value="true" />
             <property name="hibernate.id.new_generator_mappings" value="true" />
 
-            <!--<property name="hibernate.hbm2ddl.auto" value="create" />-->
+            <!-- 이 속성을 추가하면 애플리케이션 실행 시점에 데이터베이스 테이블을 자동으로 생성한다. -->
+            <property name="hibernate.hbm2ddl.auto" value="create" />
         </properties>
     </persistence-unit>
 
