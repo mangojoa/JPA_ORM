@@ -122,6 +122,21 @@ public class JpaMain {
         * 이를 통해 성능상 이점을 누릴 수 있다.
         * */
         Member findMember = em.find(Member.class, id);
+
+        /* [22.07.26] 영속 엔티티의 동일성 보장
+         * 각각의 member1, member2에 같은 id 값을 넣어 조회할 때, 여기서 member1 == member2는 참?거짓?
+         * em.find(Member.class, id); 를 반복해서 호출해도 영속성 컨텍스트는 1차 캐시에 있는 같은 엔티티 인스턴스를 반환한다.
+         * 따라서 둘은 같은 인스턴스고 결과는 당연히 참이다.
+         *
+         * 따라서 영속성 컨텍스트는 성능상 이점과 엔티티의 동일성을 보장한다.
+         *
+         * [22.07.26] 동일성과 동등성
+         * 동일성 : 실제 인스턴스가 같다. 따라서 참조 값을 비교하는 == 비교하는 값이 같다.
+         * 동등성 : 실제 인스턴스는 다를 수 있지만 인그턴스가 가지고 있는 값이 같다. 자바에서 동등성 비교는 equals() 메소드를 구현해야 한다.
+         * */
+        Member member1 = em.find(Member.class, id);
+        Member member2 = em.find(Member.class, id);
+
         System.out.println("findMember = " + findMember.getUsername() + ", age = " + findMember.getAge());
 
         List<Member> members =
