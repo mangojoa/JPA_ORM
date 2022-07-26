@@ -5,6 +5,12 @@ import java.util.List;
 
 public class JpaMain {
 
+    /* [22.07.26] 데이터베이스 스키마 자동 생성
+    * JPA는 데이터베이스 스키마를 자동으로 생성하는 기능을 지원한다.
+    *
+    * ?! 그렇다면 어디서 생성할 스키마의 정보를 가져오는 것인가?
+    * 이는 Member.jave 파일에 작성된 메핑정보를 기반으로 어떤 테이블에 어떤 컬럼을 사용하는지 알고 있기에 가능하다.
+    * */
     public static void main(String[] args) {
 
         EntityManagerFactory emf =
